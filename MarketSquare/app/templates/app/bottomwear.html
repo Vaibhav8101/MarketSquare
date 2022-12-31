@@ -1,0 +1,38 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Bottomwears{% endblock title %}
+{% block main-content %}
+<div class="container my-5">
+ <div class="row">
+  <div class="col-sm-3">
+    <div class="list-group">
+        <a href="{% url 'topwear' %}" class="list-group-item ">
+          All Bottomwears
+        </a>
+        <a href="{%url 'bottomweardata' 'Levi' %}"  class="list-group-item list-group-item-action">Levi</a>
+        {% comment %} <a href="{%url 'mobiledata' 'One Plus' %}"  class="list-group-item list-group-item-action">One Plus</a> {% endcomment %}
+        {% comment %} <a href="{%url 'topweardata' 'Amazon' %}"  class="list-group-item list-group-item-action">Amazon</a> {% endcomment %}
+        {% comment %} <a href="{%url 'topweardata' 'Puma' %}"  class="list-group-item list-group-item-action">Puma</a> {% endcomment %}
+      </div>
+  </div>
+  <div class="col-sm-8 ">
+    <div class="row">
+    {% for product in bottomwears %}
+    <div class="col-sm-4 text-center mb-4">
+        <a href="{% url 'product-detail' product.id %}" class="btn">
+        <div class="item">
+            <img src="{{product.product_image.url}}" alt=" " height="300">
+            <div class="fw-bold">{{product.title}}</div>
+            <div class="fw-bold">Rs . {{product.discounted_price}}
+                <small class="fw-light text-decoration-line-through">
+                    {{product.selling_price}}</small>
+            </div>
+        </div>
+    </a>
+    </div>
+    {% endfor %}
+    </div>
+  </div>
+ </div>
+</div>
+{% endblock main-content %}
