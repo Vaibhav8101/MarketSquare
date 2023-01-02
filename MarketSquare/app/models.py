@@ -44,7 +44,7 @@ STATE_CHOICES = (
 )
 
 class Customer(models.Model):
-    #here user has many to one relationship
+    #Declaring one to many relationship between user and customer
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     name=models.CharField(max_length=200)
     locality=models.CharField(max_length=200)
@@ -76,6 +76,7 @@ class Product(models.Model):
         return str(self.id)
     
 class Cart(models.Model):
+    # One to many relationshipe of user and cart , Cart and the product
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     product=models.ForeignKey(Product,on_delete=models.CASCADE)
     # Here default value is one because quantity can never be negative
@@ -84,6 +85,7 @@ class Cart(models.Model):
     def __str__(self):
         return str(self.id)
     
+    # Declaring the property over here so that we can directly use it in HTML
     @property
     def total_cost(self):
         return self.quantity*self.product.discounted_price
@@ -97,6 +99,7 @@ STATUS_CHOICES=(
 )
 
 class OrderPlaced(models.Model):
+    # this model has one to many relationship with user, customer and the product
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     customer=models.ForeignKey(Customer,on_delete=models.CASCADE)
     product=models.ForeignKey(Product,on_delete=models.CASCADE)

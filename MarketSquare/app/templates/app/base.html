@@ -17,14 +17,21 @@
 
     <!--Custom CSS-->
     <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
 
     <title>MarketSquare | {% block title %} {% endblock title %} </title>
+
+    <style> 
+      .navbar-brand{
+        font-family:'Shadows Into Light',cursive;
+        font-size:32px;
+      }
+    </style>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav style="backgroud-color:#426487" class="navbar navbar-expand-lg navbar-dark bg-dark" >
      <div class="container">
-       <a class="navbar-brand" href="/">MarketSquare</a>
+       <a class="navbar-brand font" href="/">MarketSquare</a>
        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
        </button>
@@ -109,3 +116,5 @@
     <script src="{% static 'app/js/myscript.js' %}"></script>
   </body>
 </html>
+
+{% comment %} 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 {% endcomment %}
